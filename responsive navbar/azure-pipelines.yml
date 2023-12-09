@@ -18,17 +18,9 @@ steps:
     echo $(Build.BinariesDirectory)
     ls $(Build.BinariesDirectory)
   displayName: 'Run a multi-line script'
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-  
 
-- task: PublishBuildArtifacts@1
+- task: CopyPublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    Contents: '**'
+    ArtifactName: 'test'
+    ArtifactType: 'Container'
