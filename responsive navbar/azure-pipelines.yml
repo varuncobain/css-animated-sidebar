@@ -15,7 +15,7 @@ steps:
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
-    echo See ls
+    echo $(Build.BinariesDirectory)
   displayName: 'Run a multi-line script'
 - task: ArchiveFiles@2
   inputs:
